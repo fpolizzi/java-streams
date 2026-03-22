@@ -17,5 +17,7 @@ public class MinMax {
     @Test
     public void max() {
         List<Integer> numbers = List.of(1, 2, 3, 100, 23, 93, 99);
+        Integer max = numbers.stream().max(Comparator.naturalOrder()).get();
+        System.out.println(max);
     }
 }
