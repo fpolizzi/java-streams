@@ -4,6 +4,7 @@ import com.fpolizzi.beans.Car;
 import com.fpolizzi.mockdata.MockData;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -52,6 +53,10 @@ public class Filtering {
     @Test
     public void findFirst() throws Exception {
         int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int result = Arrays.stream(numbers).filter(n -> n == 50)
+                .findFirst()
+                .orElse(-1);
+        System.out.println(result);
     }
 
     @Test
