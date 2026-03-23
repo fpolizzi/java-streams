@@ -71,6 +71,8 @@ public class Filtering {
     @Test
     public void allMatch() throws Exception {
         int[] even = {2, 4, 6, 8, 10};
+        boolean allMatch = Arrays.stream(even).allMatch(n -> n % 2 == 0);
+        System.out.println(allMatch);
     }
 
     @Test
