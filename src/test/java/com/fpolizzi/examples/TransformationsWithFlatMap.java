@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TransformationsWithFlatMap {
 
@@ -33,6 +34,10 @@ public class TransformationsWithFlatMap {
     @Test
     public void withFlatMap() throws Exception {
         // [Mariam, Alex, Ismail, John, Alesha, Andre, Susy, Ali]
+        List<String> names = arrayListOfNames.stream()
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
+        System.out.println(names);
     }
 }
 
