@@ -7,6 +7,7 @@ import com.fpolizzi.mockdata.MockData;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -44,6 +45,10 @@ public class TransformationsMapAndReduce {
     @Test
     public void reduce() {
         int[] integers = {1, 2, 3, 4, 99, 100, 121, 1302, 199};
+        int sum = Arrays.stream(integers).reduce(0, Integer::sum);
+        int sub = Arrays.stream(integers).reduce(0, (a, b) -> a - b);
+        System.out.println(sum);
+        System.out.println(sub);
     }
 }
 
