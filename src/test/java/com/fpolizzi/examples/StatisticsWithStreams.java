@@ -39,10 +39,14 @@ public class StatisticsWithStreams {
         System.out.println(max);
     }
 
-
     @Test
     public void average() throws Exception {
         List<Car> cars = MockData.getCars();
+        double average = cars.stream()
+                .mapToDouble(Car::getPrice)
+                .average()
+                .orElse(0);
+        System.out.println(average);
     }
 
     @Test
