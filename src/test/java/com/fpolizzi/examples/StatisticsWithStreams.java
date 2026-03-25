@@ -6,6 +6,7 @@ import com.fpolizzi.mockdata.MockData;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 
 public class StatisticsWithStreams {
@@ -62,6 +63,13 @@ public class StatisticsWithStreams {
     @Test
     public void statistics() throws Exception {
         List<Car> cars = MockData.getCars();
+        DoubleSummaryStatistics statistics = cars.stream()
+                .mapToDouble(Car::getPrice)
+                .summaryStatistics();
+        System.out.println(statistics.getCount());
+        System.out.println(statistics.getMin());
+        System.out.println(statistics.getMax());
+        System.out.println(statistics.getAverage());
+        System.out.println(BigDecimal.valueOf(statistics.getSum()));
     }
-
 }
