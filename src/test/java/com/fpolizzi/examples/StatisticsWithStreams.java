@@ -5,6 +5,7 @@ import com.fpolizzi.beans.Car;
 import com.fpolizzi.mockdata.MockData;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class StatisticsWithStreams {
@@ -52,6 +53,10 @@ public class StatisticsWithStreams {
     @Test
     public void sum() throws Exception {
         List<Car> cars = MockData.getCars();
+        double sum = cars.stream()
+                .mapToDouble(Car::getPrice)
+                .sum();
+        System.out.println(BigDecimal.valueOf(sum));
     }
 
     @Test
