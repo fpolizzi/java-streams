@@ -22,6 +22,11 @@ public class StatisticsWithStreams {
     @Test
     public void min() throws Exception {
         List<Car> cars = MockData.getCars();
+        double min = cars.stream()
+                .mapToDouble(Car::getPrice)
+                .min()
+                .orElse(0);
+        System.out.println(min);
     }
 
     @Test
