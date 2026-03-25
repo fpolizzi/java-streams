@@ -32,6 +32,11 @@ public class StatisticsWithStreams {
     @Test
     public void max() throws Exception {
         List<Car> cars = MockData.getCars();
+        double max = cars.stream()
+                .mapToDouble(Car::getPrice)
+                .max()
+                .orElse(0);
+        System.out.println(max);
     }
 
 
