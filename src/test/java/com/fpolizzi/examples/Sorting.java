@@ -7,6 +7,7 @@ import com.fpolizzi.mockdata.MockData;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,6 +27,12 @@ public class Sorting {
     @Test
     public void sortingSteamOfElementsReverse() throws IOException {
         List<Person> people = MockData.getPeople();
+
+        List<String> sorted = people.stream()
+                .map(Person::getFirstName)
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+        sorted.forEach(System.out::println);
     }
 
     @Test
