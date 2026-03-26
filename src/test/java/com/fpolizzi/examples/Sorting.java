@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class Sorting {
 
     @Test
-    public void sortingSteamOfElements() throws IOException {
+    public void sortingStreamOfElements() throws IOException {
         List<Person> people = MockData.getPeople();
 
         List<String> sorted = people.stream()
@@ -25,7 +25,7 @@ public class Sorting {
     }
 
     @Test
-    public void sortingSteamOfElementsReverse() throws IOException {
+    public void sortingStreamOfElementsReverse() throws IOException {
         List<Person> people = MockData.getPeople();
 
         List<String> sorted = people.stream()
