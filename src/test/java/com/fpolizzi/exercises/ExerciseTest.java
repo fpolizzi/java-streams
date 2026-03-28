@@ -22,4 +22,14 @@ public class ExerciseTest {
 
         creditTransactions.forEach(System.out::println);
     }
+
+    // 02. Get Total Amount of All Transactions
+    @Test
+    void totalAmountOfAllTransactions() {
+        double totalAmount = transactions.stream()
+                .mapToDouble(Transaction::getAmount)
+                .sum();
+
+        System.out.println("Total Amount: " + totalAmount);
+    }
 }
