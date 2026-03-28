@@ -4,12 +4,13 @@ import com.fpolizzi.exercises.data.Transactions;
 import com.fpolizzi.exercises.model.Transaction;
 import org.junit.jupiter.api.Test;
 
+import java.util.Comparator;
 import java.util.List;
 
 /**
  * Created by fpolizzi on 28.03.26
  */
-public class ExerciseTest {
+class ExerciseTest {
 
     private static final Transactions transactions = new Transactions();
 
@@ -31,5 +32,15 @@ public class ExerciseTest {
                 .sum();
 
         System.out.println("Total Amount: " + totalAmount);
+    }
+
+    // 03. Find the Maximum Transaction Amount
+    @Test
+    void maximumTransactionAmount() {
+        Transaction maxTransactionAmount = transactions.stream()
+                .max(Comparator.comparingDouble(Transaction::getAmount))
+                .orElse(null);
+
+        System.out.println("Max Transaction Amount: " + maxTransactionAmount);
     }
 }
