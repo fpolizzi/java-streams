@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by fpolizzi on 28.03.26
@@ -42,5 +44,14 @@ class ExerciseTest {
                 .orElse(null);
 
         System.out.println("Max Transaction Amount: " + maxTransactionAmount);
+    }
+
+    // 04. Count Transactions by Type
+    @Test
+    void transactionsByType() {
+        Map<String, Long> transactionCountByType = transactions.stream()
+                .collect(Collectors.groupingBy(Transaction::getType, Collectors.counting()));
+
+        System.out.println(transactionCountByType);
     }
 }
