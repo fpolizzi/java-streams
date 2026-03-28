@@ -9,4 +9,24 @@ public record Transaction(
         String type,
         String date,
         Customer customer
-) {}
+) {
+    public int getId() {
+        return id;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+}
