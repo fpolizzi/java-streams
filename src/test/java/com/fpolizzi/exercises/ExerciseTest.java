@@ -212,4 +212,14 @@ class ExerciseTest {
             transactions.forEach(System.out::println);
         });
     }
+
+    // 20. Find Transactions with Specific Email
+    @Test
+    void transactionsWithSpecificEmail() {
+        List<Transaction> transactionsWithExampleEmail = transactions.stream()
+                .filter(transaction -> transaction.getCustomer().getEmail().contains("example.com"))
+                .collect(Collectors.toList());
+
+        transactionsWithExampleEmail.forEach(System.out::println);
+    }
 }
