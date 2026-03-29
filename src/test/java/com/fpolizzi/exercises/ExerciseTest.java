@@ -190,4 +190,14 @@ class ExerciseTest {
             System.out.println("Customer: " + customer.getName() + ", Total: " + total);
         });
     }
+
+    // 18. Find Transactions Containing "DEBIT"
+    @Test
+    void transactionsContainingDEBIT() {
+        List<Transaction> debitTransactions = transactions.stream()
+                .filter(transaction -> transaction.getType().contains("DEBIT"))
+                .collect(Collectors.toList());
+
+        debitTransactions.forEach(System.out::println);
+    }
 }
