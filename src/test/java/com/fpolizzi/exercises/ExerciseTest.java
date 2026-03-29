@@ -148,4 +148,15 @@ class ExerciseTest {
 
         uniqueTransactions.forEach(System.out::println);
     }
+
+    // 14. Join Customer Names
+    @Test
+    void joinCustomerNames() {
+        String customerNames = transactions.stream()
+                .map(transaction -> transaction.getCustomer().getName())
+                .distinct()
+                .collect(Collectors.joining(", "));
+
+        System.out.println("Customer Names: " + customerNames);
+    }
 }
