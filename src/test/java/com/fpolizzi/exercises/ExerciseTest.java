@@ -138,4 +138,14 @@ class ExerciseTest {
 
         aliceTransactions.forEach(System.out::println);
     }
+
+    // 13. Remove Duplicate Transactions
+    @Test
+    void removeDuplicateTransactions() {
+        List<Transaction> uniqueTransactions = transactions.stream()
+                .distinct()
+                .collect(Collectors.toList());
+
+        uniqueTransactions.forEach(System.out::println);
+    }
 }
