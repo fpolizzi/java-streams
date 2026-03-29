@@ -169,4 +169,14 @@ class ExerciseTest {
 
         System.out.println("Earliest Transaction: " + earliestTransaction);
     }
+
+    // 16. Filter Transactions by Year
+    @Test
+    void transactionsByYear() {
+        List<Transaction> transactionsIn2024 = transactions.stream()
+                .filter(transaction -> transaction.getDate().startsWith("2024"))
+                .collect(Collectors.toList());
+
+        transactionsIn2024.forEach(System.out::println);
+    }
 }
