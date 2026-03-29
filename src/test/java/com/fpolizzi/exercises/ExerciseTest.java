@@ -76,4 +76,16 @@ class ExerciseTest {
 
         highValueTransactions.forEach(System.out::println);
     }
+
+    // 07. Group Transactions by Customer
+    @Test
+    void transactionsByCustomer() {
+        Map<Integer, List<Transaction>> transactionsByCustomer = transactions.stream()
+                .collect(Collectors.groupingBy(transaction -> transaction.getCustomer().getId()));
+
+        transactionsByCustomer.forEach((customerId, transactions) -> {
+            System.out.println("Customer ID: " + customerId);
+            transactions.forEach(System.out::println);
+        });
+    }
 }
