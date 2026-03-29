@@ -88,4 +88,14 @@ class ExerciseTest {
             transactions.forEach(System.out::println);
         });
     }
+
+    // 08. Find the First Transaction
+    @Test
+    void FindFirstTransaction() {
+        Transaction firstTransaction = transactions.stream()
+                .findFirst()
+                .orElse(null);
+
+        System.out.println("First Transaction: " + firstTransaction);
+    }
 }
