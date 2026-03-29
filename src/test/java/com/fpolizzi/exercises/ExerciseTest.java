@@ -128,4 +128,14 @@ class ExerciseTest {
 
         System.out.println("Average Amount: " + averageAmount);
     }
+
+    // 12. Find Transactions by Customer Name
+    @Test
+    void transactionsByCustomerName() {
+        List<Transaction> aliceTransactions = transactions.stream()
+                .filter(transaction -> "Customer7".equals(transaction.getCustomer().getName()))
+                .collect(Collectors.toList());
+
+        aliceTransactions.forEach(System.out::println);
+    }
 }
