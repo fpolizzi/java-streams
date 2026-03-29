@@ -159,4 +159,14 @@ class ExerciseTest {
 
         System.out.println("Customer Names: " + customerNames);
     }
+
+    // 15. Find the Earliest Transaction
+    @Test
+    void findEarliestTransaction() {
+        Transaction earliestTransaction = transactions.stream()
+                .min(Comparator.comparing(Transaction::getDate))
+                .orElse(null);
+
+        System.out.println("Earliest Transaction: " + earliestTransaction);
+    }
 }
