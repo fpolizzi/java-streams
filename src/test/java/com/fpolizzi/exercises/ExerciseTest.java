@@ -200,4 +200,16 @@ class ExerciseTest {
 
         debitTransactions.forEach(System.out::println);
     }
+
+    // 19. Group Transactions by Type
+    @Test
+    void groupTransactionsByType() {
+        Map<String, List<Transaction>> transactionsByType = transactions.stream()
+                .collect(Collectors.groupingBy(Transaction::getType));
+
+        transactionsByType.forEach((type, transactions) -> {
+            System.out.println("Type: " + type);
+            transactions.forEach(System.out::println);
+        });
+    }
 }
