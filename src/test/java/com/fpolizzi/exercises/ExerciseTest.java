@@ -66,4 +66,14 @@ class ExerciseTest {
 
         distinctCustomers.forEach(System.out::println);
     }
+
+    // 06. Find Transactions Above a Threshold
+    @Test
+    void transactionsAboveAThreshold() {
+        List<Transaction> highValueTransactions = transactions.stream()
+                .filter(transaction -> transaction.getAmount() > 300)
+                .collect(Collectors.toList());
+
+        highValueTransactions.forEach(System.out::println);
+    }
 }
