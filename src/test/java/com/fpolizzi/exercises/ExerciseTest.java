@@ -98,4 +98,13 @@ class ExerciseTest {
 
         System.out.println("First Transaction: " + firstTransaction);
     }
+
+    // 09. Check for Any High-Value Transaction
+    @Test
+    void checkForAnyHighValueTransaction() {
+        boolean hasHighValueTransaction = transactions.stream()
+                .anyMatch(transaction -> transaction.getAmount() > 1000);
+
+        System.out.println("Has high-value transaction: " + hasHighValueTransaction);
+    }
 }
