@@ -107,4 +107,14 @@ class ExerciseTest {
 
         System.out.println("Has high-value transaction: " + hasHighValueTransaction);
     }
+
+    // 10. Sort Transactions by Amount
+    @Test
+    void sortTransactionsByAmount() {
+        List<Transaction> sortedTransactions = transactions.stream()
+                .sorted(Comparator.comparingDouble(Transaction::getAmount))
+                .collect(Collectors.toList());
+
+        sortedTransactions.forEach(System.out::println);
+    }
 }
