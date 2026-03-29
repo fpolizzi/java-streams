@@ -91,7 +91,7 @@ class ExerciseTest {
 
     // 08. Find the First Transaction
     @Test
-    void FindFirstTransaction() {
+    void findFirstTransaction() {
         Transaction firstTransaction = transactions.stream()
                 .findFirst()
                 .orElse(null);
