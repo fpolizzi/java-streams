@@ -117,4 +117,15 @@ class ExerciseTest {
 
         sortedTransactions.forEach(System.out::println);
     }
+
+    // 11. Calculate Average Transaction Amount
+    @Test
+    void averageTransactionAmount() {
+        double averageAmount = transactions.stream()
+                .mapToDouble(Transaction::getAmount)
+                .average()
+                .orElse(0.0);
+
+        System.out.println("Average Amount: " + averageAmount);
+    }
 }
