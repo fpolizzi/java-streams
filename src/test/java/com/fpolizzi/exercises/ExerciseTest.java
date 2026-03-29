@@ -179,4 +179,15 @@ class ExerciseTest {
 
         transactionsIn2024.forEach(System.out::println);
     }
+
+    // 17. Calculate Total Amount by Customer
+    @Test
+    void totalAmountByCustomer() {
+        Map<Customer, Double> totalAmountByCustomer = transactions.stream()
+                .collect(Collectors.groupingBy(Transaction::getCustomer, Collectors.summingDouble(Transaction::getAmount)));
+
+        totalAmountByCustomer.forEach((customer, total) -> {
+            System.out.println("Customer: " + customer.getName() + ", Total: " + total);
+        });
+    }
 }
