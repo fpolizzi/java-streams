@@ -1,6 +1,7 @@
 package com.fpolizzi.exercises;
 
 import com.fpolizzi.exercises.data.Transactions;
+import com.fpolizzi.exercises.model.Customer;
 import com.fpolizzi.exercises.model.Transaction;
 import org.junit.jupiter.api.Test;
 
@@ -53,5 +54,16 @@ class ExerciseTest {
                 .collect(Collectors.groupingBy(Transaction::getType, Collectors.counting()));
 
         System.out.println(transactionCountByType);
+    }
+
+    // 05. Get Distinct Customers
+    @Test
+    void getDistinctCustomers() {
+        List<Customer> distinctCustomers = transactions.stream()
+                .map(Transaction::getCustomer)
+                .distinct()
+                .collect(Collectors.toList());
+
+        distinctCustomers.forEach(System.out::println);
     }
 }
